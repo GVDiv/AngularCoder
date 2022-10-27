@@ -1,1 +1,12 @@
-<p>inicio works!</p>
+<div class="main-home" *ngIf="sesion$ | async as sesion">
+    <div class="card-home">
+        <mat-card>
+            <mat-card-title>¡Hola, {{ sesion.usuarioActivo?.usuario }}!</mat-card-title>
+            <mat-card-subtitle>Cursos y Lista de alumnos</mat-card-subtitle>
+            <mat-card-actions>
+              <a mat-button (click)="verCursos()">Cursos</a>
+              <a mat-button (click)=" verAlumnos()">Alumnos</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
