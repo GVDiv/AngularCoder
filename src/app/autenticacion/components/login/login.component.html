@@ -1,0 +1,27 @@
+<div class="login-container">
+
+    <form [formGroup]="formulario" (ngSubmit)="login()" class="form">
+        <span class="form_title">Iniciar sesion</span>
+
+        <div class="form_container">
+            <div class="form_group">
+                <mat-form-field appearance="fill" class="fill">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput formControlName="usuario">
+                </mat-form-field>
+            </div>
+            <div class="form_group">
+                <mat-form-field appearance="fill" class="fill">
+                    <mat-label>Contrasena</mat-label>
+                    <input matInput formControlName="contrasena">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <mat-slide-toggle formControlName="admin">Es admin</mat-slide-toggle>
+        </div>
+            
+        <button class="form_submit" type="submit" mat-raised-button color="primary">Entrar</button>
+    </form>
+
+</div>
