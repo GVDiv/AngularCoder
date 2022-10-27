@@ -9,7 +9,7 @@ const routes: Routes = [
     { path: '', component: AlumnoInicioComponent, children: [
         { path: 'listar', component: AlumnoListaComponent},
         { path: 'agregar', component: AgregarAlumnoComponent}
-    ]}
+    ]},
 ];
 
 @NgModule({

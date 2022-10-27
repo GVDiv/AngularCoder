@@ -5,6 +5,9 @@ import { AlumnosRoutingModule } from './alumnos-routing.module';
 import { AlumnoInicioComponent } from './components/alumno-inicio/alumno-inicio.component';
 import { AlumnoListaComponent } from './components/alumno-lista/alumno-lista.component';
 import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alumno.component';
+import { MaterialModule } from '../material.module';
+import { SharedModule } from '../shared/shared.module';
+import { AlumnoService } from './services/alumno.service';
 
 
 
@@ -16,7 +19,13 @@ import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alum
   ],
   imports: [
     CommonModule,
-    AlumnosRoutingModule
+    AlumnosRoutingModule,
+    MaterialModule,
+    AlumnosRoutingModule,
+    SharedModule
+  ],
+  providers: [
+    AlumnoService
   ]
 })
 export class AlumnosModule { }

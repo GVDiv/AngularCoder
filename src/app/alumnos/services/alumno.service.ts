@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, filter, map, Observable, Subject } from 'rxjs';
 import { Alumno } from 'src/app/models/alumno';
-import { Curso } from '../../models/curso';
 
 @Injectable()
 export class AlumnoService {
