@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Curso } from 'src/app/models/curso';
 import { CursoService } from 'src/app/cursos/services/curso.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DetalleCursoComponent } from '../detalle-curso/detalle-curso.component';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -14,7 +16,8 @@ export class ListaCursosComponent implements OnInit {
 
   constructor(
     private cursoService: CursoService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -28,4 +31,10 @@ export class ListaCursosComponent implements OnInit {
   editarCurso(curso: Curso){
     this.router.navigate(['cursos/editar', curso]);
   }
+  
+  openDialog() {
+      this.dialog.open(DetalleCursoComponent);
+  }
+
+
 }
