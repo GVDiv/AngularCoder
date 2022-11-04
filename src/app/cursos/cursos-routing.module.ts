@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'listar', component: ListaCursosComponent, canActivate: [AdminGuard] },
     { path: 'editar', component: EditarCursoComponent, canActivate: [AdminGuard] },
     { path: 'agregar', component: AgregarCursoComponent, canActivate: [AdminGuard] },
-    { path: ':id', component: DetalleCursoComponent, canLoad: [AdminGuard]}
+    { path: ':id', component: DetalleCursoComponent, canLoad: [AutenticacionGuard]}
   ]} 
 ]; 
 

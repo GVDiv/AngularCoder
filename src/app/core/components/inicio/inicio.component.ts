@@ -21,12 +21,8 @@ export class InicioComponent implements OnInit {
     this.sesion$ = this.sesionService.obtenerSesion();
   }
 
-  verCursos(){
-    this.router.navigate(['/cursos']);
-  }
-
-  verAlumnos(){
-    this.router.navigate(['/alumnos']);
+  verLogin(){
+    this.router.navigate(['autenticacion/login']);
   }
 
 }

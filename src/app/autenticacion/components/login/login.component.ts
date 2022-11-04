@@ -17,11 +17,11 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.formulario = new FormGroup({
-      usuario: new FormControl('Gabb'),
-      contrasena: new FormControl('123'),
-      admin: new FormControl(true),
-      canActivateChild: new FormControl(true),
-      canLoad: new FormControl(true),
+      usuario: new FormControl('user'),
+      contrasena: new FormControl('password'),
+      admin: new FormControl(false),
+      canActivateChild: new FormControl(false),
+      canLoad: new FormControl(false),
     })
   }
 

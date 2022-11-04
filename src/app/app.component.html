@@ -13,6 +13,9 @@
                 <mat-icon>person</mat-icon>
             </a>
             <a mat-button routerLink="autenticacion/login">
+                <mat-icon>login</mat-icon>
+            </a>
+            <a mat-button routerLink="autenticacion/login">
                 <mat-icon>settings</mat-icon>
             </a>
         </mat-toolbar>
@@ -26,7 +29,7 @@
             <div *ngIf="sesion.sesionActiva">
             <button mat-raised-button [matMenuTriggerFor]="menuCursos">Cursos</button>
                 <mat-menu #menuCursos="matMenu">
-                    <button mat-menu-item routerLink="cursos">Lista de cursos</button>
+                    <button mat-menu-item routerLink="cursos"*ngIf="sesion.usuarioActivo?.admin">Lista de cursos</button>
                     <a mat-button routerLink="cursos/agregar" *ngIf="sesion.usuarioActivo?.admin">Nuevo curso</a>
                     <button mat-menu-item routerLink="cursos/listar" *ngIf="sesion.usuarioActivo?.admin">Editar cursos</button>
                 </mat-menu>

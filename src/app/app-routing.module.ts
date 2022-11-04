@@ -8,14 +8,14 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent, 
     // canActivate: [AutenticacionGuard]
    },
-
   { path: 'alumnos', 
-    loadChildren: () => import('./alumnos/alumnos.module').then((m) => m.AlumnosModule)},
-    
+    loadChildren: () => import('./alumnos/alumnos.module').then((m) => m.AlumnosModule),
+    canActivate: [AutenticacionGuard]
+  },
   { 
     path: 'cursos',
     loadChildren: () => import('./cursos/cursos.module').then((m) => m.CursosModule),
-    // canActivate: [AutenticacionGuard]
+    canActivate: [AutenticacionGuard]
   },
   { 
     path: 'autenticacion',
