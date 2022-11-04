@@ -20,10 +20,11 @@ export class AutenticacionGuard implements CanActivate, CanActivateChild, CanDea
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.sesion.obtenerSesion().pipe(
       map((sesion: Sesion) => {
-        if(sesion.sesionActiva){
+        if(sesion.usuarioActivo?.admin){
           return true;
         }else{
-          this.router.navigate(['autenticacion/login']);
+          // alert("No tiene permisos para acceder a este sitio");
+          this.router.navigate(['inicio']);
           return false;
         }
       })
@@ -33,7 +34,17 @@ export class AutenticacionGuard implements CanActivate, CanActivateChild, CanDea
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+    return this.sesion.obtenerSesion().pipe(
+      map((sesion: Sesion) => {
+        if(sesion.usuarioActivo?.canActivateChild){
+          return true;
+        } else {
+          // alert("No tiene permisos para acceder a este sitio");
+          this.router.navigate(['inicio']);
+          return false
+        }
+      })
+    )
   }
 
   canDeactivate(
@@ -47,6 +58,16 @@ export class AutenticacionGuard implements CanActivate, CanActivateChild, CanDea
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
+      return this.sesion.obtenerSesion().pipe(
+        map((sesion: Sesion) => {
+          if(sesion.usuarioActivo?.canLoad){
+            return true;
+          } else {
+            // alert("No tiene permisos para acceder a este sitio");
+            this.router.navigate(['inicio']);
+            return false
+          }
+        })
+      )
   }
 }

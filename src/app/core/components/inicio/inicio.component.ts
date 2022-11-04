@@ -22,11 +22,11 @@ export class InicioComponent implements OnInit {
   }
 
   verCursos(){
-    this.router.navigate(['/cursos/listar']);
+    this.router.navigate(['/cursos']);
   }
 
   verAlumnos(){
-    this.router.navigate(['/alumnos/listar']);
+    this.router.navigate(['/alumnos']);
   }
 
 }

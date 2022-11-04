@@ -8,7 +8,7 @@
                 <mat-icon>home</mat-icon>
             </button>
             <div class="espacio"></div>
-            <a mat-button routerLink="autenticacion/login">
+            <a mat-button routerLink="usuario" *ngIf="sesion.usuarioActivo?.admin">
                 <!-- <span class="usuarioActivo">{{ sesion.usuarioActivo?.usuario }}</span> -->
                 <mat-icon>person</mat-icon>
             </a>
@@ -26,9 +26,9 @@
             <div *ngIf="sesion.sesionActiva">
             <button mat-raised-button [matMenuTriggerFor]="menuCursos">Cursos</button>
                 <mat-menu #menuCursos="matMenu">
-                    <button mat-menu-item routerLink="cursos">Cursos Inicio</button>
+                    <button mat-menu-item routerLink="cursos">Lista de cursos</button>
                     <a mat-button routerLink="cursos/agregar" *ngIf="sesion.usuarioActivo?.admin">Nuevo curso</a>
-                    <button mat-menu-item routerLink="cursos/listar">Lista cursos</button>
+                    <button mat-menu-item routerLink="cursos/listar" *ngIf="sesion.usuarioActivo?.admin">Editar cursos</button>
                 </mat-menu>
             </div>
         </ng-container>

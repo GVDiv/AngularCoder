@@ -5,6 +5,7 @@ import { CursoService } from 'src/app/cursos/services/curso.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalleCursoComponent } from '../detalle-curso/detalle-curso.component';
+import { Sesion } from 'src/app/models/sesion';
 
 @Component({
   selector: 'app-lista-cursos',
@@ -12,7 +13,8 @@ import { DetalleCursoComponent } from '../detalle-curso/detalle-curso.component'
   styleUrls: ['./lista-cursos.component.css']
 })
 export class ListaCursosComponent implements OnInit {
-  cursos$!: Observable<Curso[]>
+  cursos$!: Observable<Curso[]>;
+  sesion$!: Observable<Sesion>;
 
   constructor(
     private cursoService: CursoService,
@@ -26,6 +28,7 @@ export class ListaCursosComponent implements OnInit {
 
   eliminarCurso(id: number){
     this.cursoService.eliminarCurso(id);
+    this.cursos$ = this.cursoService.obtenerCursos()
   }
 
   editarCurso(curso: Curso){

@@ -9,11 +9,13 @@ import { EditarCursoComponent } from './components/editar-curso/editar-curso.com
 import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.component';
 
 const routes: Routes = [
-  { path: '', component: CursosInicioComponent, children: [
-    { path: 'listar', component: ListaCursosComponent },
-    { path: 'editar', component: EditarCursoComponent },
+  { path: '', component: CursosInicioComponent,
+              // canActivateChild: [AutenticacionGuard],
+    children:[
+    { path: 'listar', component: ListaCursosComponent, canActivate: [AdminGuard] },
+    { path: 'editar', component: EditarCursoComponent, canActivate: [AdminGuard] },
     { path: 'agregar', component: AgregarCursoComponent, canActivate: [AdminGuard] },
-    { path: ':id', component: DetalleCursoComponent}
+    { path: ':id', component: DetalleCursoComponent, canLoad: [AdminGuard]}
   ]} 
 ]; 
 

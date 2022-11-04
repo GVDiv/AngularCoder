@@ -5,7 +5,9 @@ import { PaginaNoEncontradaComponent } from './core/components/pagina-no-encontr
 import { AutenticacionGuard } from './core/guards/autenticacion.guard';
 
 const routes: Routes = [
-  { path: 'inicio', component: InicioComponent, canActivate: [AutenticacionGuard] },
+  { path: 'inicio', component: InicioComponent, 
+    // canActivate: [AutenticacionGuard]
+   },
 
   { path: 'alumnos', 
     loadChildren: () => import('./alumnos/alumnos.module').then((m) => m.AlumnosModule)},
@@ -13,11 +15,16 @@ const routes: Routes = [
   { 
     path: 'cursos',
     loadChildren: () => import('./cursos/cursos.module').then((m) => m.CursosModule),
-    canActivate: [AutenticacionGuard]
+    // canActivate: [AutenticacionGuard]
   },
   { 
     path: 'autenticacion',
     loadChildren: () => import('./autenticacion/autenticacion.module').then((m) => m.AutenticacionModule)
+  },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./usuarios/usuarios.module').then((m) => m.UsuariosModule),
+    canLoad: [AutenticacionGuard]
   },
   { path: '', redirectTo: 'inicio', pathMatch: 'full'},
   { path: '**', component: PaginaNoEncontradaComponent }

@@ -18,13 +18,14 @@
 
         <mat-card-actions align="end">
 
-            <button mat-icon-button [routerLink]="'/cursos/'+curso.id" (click)="openDialog()">
-                <mat-icon>visibility</mat-icon>
-            </button>
-
-            <!-- <button mat-icon-button [routerLink]="'/cursos/'+curso.id">
+            <!-- <button mat-icon-button [routerLink]="'/cursos/'+curso.id" (click)="openDialog()">
                 <mat-icon>visibility</mat-icon>
             </button> -->
+
+            <button mat-icon-button [routerLink]="'/cursos/'+curso.id" 
+                [disabled]="">
+                <mat-icon>visibility</mat-icon>
+            </button>
 
             <button mat-icon-button color="primary" (click)="editarCurso(curso)">
                 <mat-icon>edit</mat-icon>

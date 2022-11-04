@@ -21,7 +21,7 @@ export class AdminGuard implements CanActivate {
           if(sesion.usuarioActivo?.admin){
             return true;
           }else{
-            alert("No tiene permisos para acceder a este sitio");
+            // alert("No tiene permisos para acceder a este sitio");
             this.router.navigate(['inicio']);
             return false;
           }
